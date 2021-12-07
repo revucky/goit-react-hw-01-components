@@ -1,27 +1,28 @@
-import user from "./user.json";
+import "./Profile.css";
 
-const Profile = () => {
+const Profile = ({ user }) => {
+  const { avatar, username, tag, location, stats } = user;
   return (
-    <div class="profile">
-      <div class="description">
-        <img src={user.avatar} alt="User avatar" class="avatar" />
-        <p class="name">{user.username}</p>
-        <p class="tag">{"@" + user.tag}</p>
-        <p class="location">{user.location}</p>
+    <div className="Profile-wrap">
+      <div className="description">
+        <img src={avatar} alt="User avatar" className="avatar" />
+        <p className="name">{username}</p>
+        <p className="tag colorTitle">{"@" + tag}</p>
+        <p className="location colorTitle">{location}</p>
       </div>
 
-      <ul class="stats">
-        <li>
-          <span class="label">Followers</span>
-          <span class="quantity">{user.stats.followers}</span>
+      <ul className="stats">
+        <li className="Profile-item">
+          <span className="label colorTitle">Followers</span>
+          <span className="quantity"> {stats.followers}</span>
         </li>
-        <li>
-          <span class="label">Views</span>
-          <span class="quantity">{user.stats.views}</span>
+        <li className="Profile-item">
+          <span className="label colorTitle">Views</span>
+          <span className="quantity"> {stats.views}</span>
         </li>
-        <li>
-          <span class="label">Likes</span>
-          <span class="quantity">{user.stats.likes}</span>
+        <li className="Profile-item">
+          <span className="label colorTitle">Likes</span>
+          <span className="quantity"> {stats.likes}</span>
         </li>
       </ul>
     </div>
