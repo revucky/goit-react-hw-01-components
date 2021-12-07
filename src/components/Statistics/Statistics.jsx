@@ -2,13 +2,13 @@ import PropTypes from "prop-types";
 import "./Statistics.css";
 import colorSt from "../../services/color";
 
-const Statistics = ({ stats }) => {
+const Statistics = ({ stats, title }) => {
   // console.log(colorSt());
 
   // const { id, label, percentage } = stats;
   return (
     <section className="statistics">
-      <h2 className="title">Upload stats</h2>
+      {title && <h2 className="title">{title}</h2>}
       <ul className="stat-list">
         {stats.map((stat) => (
           <li
@@ -26,8 +26,7 @@ const Statistics = ({ stats }) => {
 };
 
 Statistics.propTypes = {
-  label: PropTypes.string,
-  percentage: PropTypes.number,
+  title: PropTypes.string,
 };
 
 export default Statistics;
